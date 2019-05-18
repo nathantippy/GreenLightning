@@ -1,0 +1,5 @@
+package com.javanut.gl.impl.twitter;
+
+public class TwitterConfigSubscription {
+
+}

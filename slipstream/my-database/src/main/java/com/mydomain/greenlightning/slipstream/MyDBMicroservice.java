@@ -8,11 +8,11 @@ import java.sql.Statement;
 
 import org.h2.tools.Server;
 
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenFramework;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.json.JSONRequired;
-import com.ociweb.pronghorn.network.HTTPServerConfig;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenFramework;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.json.JSONRequired;
+import com.javanut.pronghorn.network.HTTPServerConfig;
 
 public class MyDBMicroservice implements GreenApp {
 

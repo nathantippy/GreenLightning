@@ -16,13 +16,13 @@ Demo code:
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.Builder;
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPServerConfig;
-import com.ociweb.pronghorn.network.NetGraphBuilder;
+import com.javanut.gl.api.Builder;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPServerConfig;
+import com.javanut.pronghorn.network.NetGraphBuilder;
 
 
 public class Shutdown implements GreenApp
@@ -59,13 +59,13 @@ Behavior class:
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.RestListener;
-import com.ociweb.gl.api.ShutdownListener;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.RestListener;
+import com.javanut.gl.api.ShutdownListener;
 
 public class ShutdownBehavior implements ShutdownListener, RestListener{
 

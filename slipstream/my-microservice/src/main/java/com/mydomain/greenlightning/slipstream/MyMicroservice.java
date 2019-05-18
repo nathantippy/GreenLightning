@@ -1,10 +1,10 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenFramework;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.json.JSONRequired;
-import com.ociweb.pronghorn.network.HTTPServerConfig;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenFramework;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.json.JSONRequired;
+import com.javanut.pronghorn.network.HTTPServerConfig;
 
 //applications must extend GreenApp
 public class MyMicroservice implements GreenApp {

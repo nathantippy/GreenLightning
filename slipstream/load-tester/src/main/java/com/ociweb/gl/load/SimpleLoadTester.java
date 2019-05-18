@@ -1,9 +1,9 @@
 package com.ociweb.gl.load;
 
-import com.ociweb.gl.api.MsgRuntime;
-import com.ociweb.gl.test.LoadTester;
-import com.ociweb.pronghorn.network.ClientCoordinator;
-import com.ociweb.pronghorn.network.ClientSocketReaderStage;
+import com.javanut.gl.api.MsgRuntime;
+import com.javanut.gl.test.LoadTester;
+import com.javanut.pronghorn.network.ClientCoordinator;
+import com.javanut.pronghorn.network.ClientSocketReaderStage;
 
 public class SimpleLoadTester {
 

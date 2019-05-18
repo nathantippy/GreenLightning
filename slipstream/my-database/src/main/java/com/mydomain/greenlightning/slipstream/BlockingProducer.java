@@ -1,9 +1,9 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.impl.blocking.TargetSelector;
-import com.ociweb.pronghorn.pipe.ChannelReader;
-import com.ociweb.pronghorn.stage.blocking.BlockingWorker;
-import com.ociweb.pronghorn.stage.blocking.BlockingWorkerProducer;
+import com.javanut.gl.impl.blocking.TargetSelector;
+import com.javanut.pronghorn.pipe.ChannelReader;
+import com.javanut.pronghorn.stage.blocking.BlockingWorker;
+import com.javanut.pronghorn.stage.blocking.BlockingWorkerProducer;
 
 
 public class BlockingProducer implements BlockingWorkerProducer, TargetSelector {

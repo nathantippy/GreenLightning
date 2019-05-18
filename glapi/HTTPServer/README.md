@@ -13,15 +13,15 @@
 Demo code:
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
 
-import com.ociweb.gl.api.Builder;
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.pronghorn.network.config.HTTPHeaderDefaults;
-import com.ociweb.pronghorn.util.AppendableProxy;
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.gl.api.Builder;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.pronghorn.network.config.HTTPHeaderDefaults;
+import com.javanut.pronghorn.util.AppendableProxy;
+import com.javanut.pronghorn.util.Appendables;
 
 public class HTTPServer implements GreenApp
 {
@@ -104,15 +104,15 @@ public class HTTPServer implements GreenApp
 Behavior class:
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.RestListener;
-import com.ociweb.pronghorn.network.config.HTTPHeaderDefaults;
-import com.ociweb.pronghorn.util.AppendableProxy;
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.RestListener;
+import com.javanut.pronghorn.network.config.HTTPHeaderDefaults;
+import com.javanut.pronghorn.util.AppendableProxy;
+import com.javanut.pronghorn.util.Appendables;
 
 public class RestBehaviorEmptyResponse implements RestListener {
 
@@ -160,16 +160,16 @@ public class RestBehaviorEmptyResponse implements RestListener {
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPFieldReader;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.RestListener;
-import com.ociweb.pronghorn.network.config.HTTPContentTypeDefaults;
-import com.ociweb.pronghorn.network.config.HTTPHeaderDefaults;
-import com.ociweb.pronghorn.util.AppendableProxy;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPFieldReader;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.RestListener;
+import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
+import com.javanut.pronghorn.network.config.HTTPHeaderDefaults;
+import com.javanut.pronghorn.util.AppendableProxy;
 
 public class RestBehaviorLargeResponse implements RestListener {
 
@@ -242,15 +242,15 @@ public class RestBehaviorLargeResponse implements RestListener {
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPFieldReader;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.RestListener;
-import com.ociweb.pronghorn.network.config.HTTPContentTypeDefaults;
-import com.ociweb.pronghorn.util.AppendableProxy;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPFieldReader;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.RestListener;
+import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
+import com.javanut.pronghorn.util.AppendableProxy;
 
 public class RestBehaviorSmallResponse implements RestListener {
 

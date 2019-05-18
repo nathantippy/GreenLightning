@@ -1,7 +1,7 @@
 package com.ociweb.gl.benchmark;
 
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.pronghorn.stage.scheduling.GraphManager;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.pronghorn.stage.scheduling.GraphManager;
 
 public class GreenLightning {
 

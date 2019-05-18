@@ -13,13 +13,13 @@
 Demo code:
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
 
-import com.ociweb.gl.api.Builder;
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPSession;
+import com.javanut.gl.api.Builder;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPSession;
 
 public class HTTPClient implements GreenApp
 {
@@ -56,12 +56,12 @@ public class HTTPClient implements GreenApp
 Behavior class:
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.HTTPSession;
-import com.ociweb.gl.api.StartupListener;
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPSession;
+import com.javanut.gl.api.StartupListener;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
 
 public class HTTPGetBehaviorChained implements StartupListener {
 	
@@ -86,19 +86,19 @@ public class HTTPGetBehaviorChained implements StartupListener {
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPResponseListener;
-import com.ociweb.gl.api.HTTPResponseReader;
-import com.ociweb.gl.api.HTTPSession;
-import com.ociweb.gl.api.Payloadable;
-import com.ociweb.gl.api.PubSubListener;
-import com.ociweb.gl.api.StartupListener;
-import com.ociweb.gl.api.TimeListener;
-import com.ociweb.pronghorn.pipe.ChannelReader;
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPResponseListener;
+import com.javanut.gl.api.HTTPResponseReader;
+import com.javanut.gl.api.HTTPSession;
+import com.javanut.gl.api.Payloadable;
+import com.javanut.gl.api.PubSubListener;
+import com.javanut.gl.api.StartupListener;
+import com.javanut.gl.api.TimeListener;
+import com.javanut.pronghorn.pipe.ChannelReader;
+import com.javanut.pronghorn.util.Appendables;
 
 public class HTTPGetBehaviorSingle implements StartupListener, HTTPResponseListener, PubSubListener {
 
@@ -172,12 +172,12 @@ public class HTTPGetBehaviorSingle implements StartupListener, HTTPResponseListe
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.HTTPResponseListener;
-import com.ociweb.gl.api.HTTPResponseReader;
-import com.ociweb.gl.api.Payloadable;
-import com.ociweb.pronghorn.pipe.ChannelReader;
+import com.javanut.gl.api.HTTPResponseListener;
+import com.javanut.gl.api.HTTPResponseReader;
+import com.javanut.gl.api.Payloadable;
+import com.javanut.pronghorn.pipe.ChannelReader;
 
 public class HTTPResponse implements HTTPResponseListener {
 

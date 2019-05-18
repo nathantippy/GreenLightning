@@ -17,13 +17,13 @@ Main Class
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.Builder;
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.pronghorn.util.AppendableProxy;
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.gl.api.Builder;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.pronghorn.util.AppendableProxy;
+import com.javanut.pronghorn.util.Appendables;
 
 public class StateMachine implements GreenApp
 {
@@ -80,11 +80,11 @@ Behavior classes
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.StateChangeListener;
-import com.ociweb.oe.greenlightning.api.StateMachine.StopLight;
-import com.ociweb.pronghorn.util.AppendableProxy;
+import com.javanut.gl.api.StateChangeListener;
+import com.javanut.oe.greenlightning.api.StateMachine.StopLight;
+import com.javanut.pronghorn.util.AppendableProxy;
 
 public class StateChangeBehavior implements StateChangeListener<StopLight> {
 
@@ -108,14 +108,14 @@ public class StateChangeBehavior implements StateChangeListener<StopLight> {
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.TimeListener;
-import com.ociweb.oe.greenlightning.api.StateMachine.StopLight;
-import com.ociweb.pronghorn.util.AppendableProxy;
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.TimeListener;
+import com.javanut.oe.greenlightning.api.StateMachine.StopLight;
+import com.javanut.pronghorn.util.AppendableProxy;
+import com.javanut.pronghorn.util.Appendables;
 
 public class TimingBehavior implements TimeListener {
 

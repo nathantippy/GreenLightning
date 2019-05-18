@@ -2,7 +2,7 @@ package com.mydomain.greenlightning.slipstream;
 
 import java.util.Random;
 
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.pronghorn.util.Appendables;
 
 public class Product {
 

@@ -6,15 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.ociweb.json.encode.JSONRenderer;
-import com.ociweb.pronghorn.pipe.DataInputBlobReader;
-import com.ociweb.pronghorn.pipe.DataOutputBlobWriter;
-import com.ociweb.pronghorn.pipe.Pipe;
-import com.ociweb.pronghorn.pipe.RawDataSchema;
-import com.ociweb.pronghorn.pipe.StructuredReader;
-import com.ociweb.pronghorn.pipe.StructuredWriter;
-import com.ociweb.pronghorn.stage.blocking.BlockingWorker;
-import com.ociweb.pronghorn.util.AppendableBuilder;
+import com.javanut.json.encode.JSONRenderer;
+import com.javanut.pronghorn.pipe.DataInputBlobReader;
+import com.javanut.pronghorn.pipe.DataOutputBlobWriter;
+import com.javanut.pronghorn.pipe.Pipe;
+import com.javanut.pronghorn.pipe.RawDataSchema;
+import com.javanut.pronghorn.pipe.StructuredReader;
+import com.javanut.pronghorn.pipe.StructuredWriter;
+import com.javanut.pronghorn.stage.blocking.BlockingWorker;
+import com.javanut.pronghorn.util.AppendableBuilder;
 
 public class ExampleWorker implements BlockingWorker {
 

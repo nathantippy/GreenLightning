@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ociweb</groupId>
+  <groupId>com.javanut</groupId>
   <artifactId>open-edge-greenlightning</artifactId>
-  <version>1.0.38</version>
+  <version>1.1.0</version>
   <packaging>pom</packaging>
  
   <modules>  

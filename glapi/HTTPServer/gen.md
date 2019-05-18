@@ -11,9 +11,9 @@
 # Example project:
  
 Demo code:
-.include "./src/main/java/com/ociweb/oe/greenlightning/api/HTTPServer.java"
+.include "./src/main/java/com/javanut/oe/greenlightning/api/HTTPServer.java"
 Behavior class:
-.include "./src/main/java/com/ociweb/oe/greenlightning/api/RestBehaviorEmptyResponse.java"
-.include "./src/main/java/com/ociweb/oe/greenlightning/api/RestBehaviorLargeResponse.java"
-.include "./src/main/java/com/ociweb/oe/greenlightning/api/RestBehaviorSmallResponse.java"
+.include "./src/main/java/com/javanut/oe/greenlightning/api/RestBehaviorEmptyResponse.java"
+.include "./src/main/java/com/javanut/oe/greenlightning/api/RestBehaviorLargeResponse.java"
+.include "./src/main/java/com/javanut/oe/greenlightning/api/RestBehaviorSmallResponse.java"
 This class is a simple demonstration of HTTPServer. HTTP Server will listen for an HTTP Client to send it a request. It will try to process the request, however, if it is unable to process it at that time, it will be reattempted later

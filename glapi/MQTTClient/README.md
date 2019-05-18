@@ -18,13 +18,13 @@ Demo code:
 
 
 ```java
-package com.ociweb.oe.greenlightning.api;
+package com.javanut.oe.greenlightning.api;
 
-import com.ociweb.gl.api.*;
-import com.ociweb.oe.greenlightning.api.behaviors.EgressBehavior;
-import com.ociweb.oe.greenlightning.api.behaviors.IngressBehavior;
-import com.ociweb.oe.greenlightning.api.behaviors.TimeBehavior;
-import com.ociweb.pronghorn.stage.scheduling.ScriptedNonThreadScheduler;
+import com.javanut.gl.api.*;
+import com.javanut.oe.greenlightning.api.behaviors.EgressBehavior;
+import com.javanut.oe.greenlightning.api.behaviors.IngressBehavior;
+import com.javanut.oe.greenlightning.api.behaviors.TimeBehavior;
+import com.javanut.pronghorn.stage.scheduling.ScriptedNonThreadScheduler;
 
 public class MQTTClient implements GreenApp {
 	private MQTTBridge mqttConfig;
@@ -105,15 +105,15 @@ Behavior class:
 
 
 ```java
-package com.ociweb.oe.greenlightning.api.behaviors;
+package com.javanut.oe.greenlightning.api.behaviors;
 
 import java.util.Date;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.TimeListener;
-import com.ociweb.gl.api.WaitFor;
-import com.ociweb.gl.api.Writable;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.TimeListener;
+import com.javanut.gl.api.WaitFor;
+import com.javanut.gl.api.Writable;
 
 public class TimeBehavior implements TimeListener {
 	private int droppedCount = 0;
@@ -152,14 +152,14 @@ public class TimeBehavior implements TimeListener {
 
 
 ```java
-package com.ociweb.oe.greenlightning.api.behaviors;
+package com.javanut.oe.greenlightning.api.behaviors;
 
-import com.ociweb.gl.api.GreenCommandChannel;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.PubSubMethodListener;
-import com.ociweb.gl.api.WaitFor;
-import com.ociweb.gl.api.Writable;
-import com.ociweb.pronghorn.pipe.ChannelReader;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.PubSubMethodListener;
+import com.javanut.gl.api.WaitFor;
+import com.javanut.gl.api.Writable;
+import com.javanut.pronghorn.pipe.ChannelReader;
 
 public class IngressBehavior implements PubSubMethodListener {
 	private final GreenCommandChannel cmd;
@@ -193,10 +193,10 @@ public class IngressBehavior implements PubSubMethodListener {
 
 
 ```java
-package com.ociweb.oe.greenlightning.api.behaviors;
+package com.javanut.oe.greenlightning.api.behaviors;
 
-import com.ociweb.gl.api.PubSubMethodListener;
-import com.ociweb.pronghorn.pipe.ChannelReader;
+import com.javanut.gl.api.PubSubMethodListener;
+import com.javanut.pronghorn.pipe.ChannelReader;
 
 public class EgressBehavior implements PubSubMethodListener {
 

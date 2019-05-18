@@ -1,13 +1,13 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPResponder;
-import com.ociweb.gl.api.HTTPResponseListener;
-import com.ociweb.gl.api.HTTPResponseReader;
-import com.ociweb.gl.api.PubSubListener;
-import com.ociweb.pronghorn.network.config.HTTPHeader;
-import com.ociweb.pronghorn.network.config.HTTPHeaderDefaults;
-import com.ociweb.pronghorn.pipe.ChannelReader;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPResponder;
+import com.javanut.gl.api.HTTPResponseListener;
+import com.javanut.gl.api.HTTPResponseReader;
+import com.javanut.gl.api.PubSubListener;
+import com.javanut.pronghorn.network.config.HTTPHeader;
+import com.javanut.pronghorn.network.config.HTTPHeaderDefaults;
+import com.javanut.pronghorn.pipe.ChannelReader;
 
 public class ExternalResponse implements PubSubListener, HTTPResponseListener {
 

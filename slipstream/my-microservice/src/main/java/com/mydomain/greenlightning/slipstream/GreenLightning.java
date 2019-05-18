@@ -1,6 +1,6 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.api.GreenRuntime;
+import com.javanut.gl.api.GreenRuntime;
 
 public class GreenLightning {
 

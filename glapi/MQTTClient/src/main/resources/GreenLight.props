@@ -1,1 +1,1 @@
-main=com.ociweb.oe.greenlightning.api.MQTTClient
+main=com.javanut.oe.greenlightning.api.MQTTClient

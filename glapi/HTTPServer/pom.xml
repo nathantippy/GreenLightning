@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ociweb.oe.greenlightning.api</groupId>
+  <groupId>com.javanut.oe.greenlightning.api</groupId>
   <artifactId>http-server</artifactId>
-  <version>1.0.38</version>
+  <version>1.1.0</version>
   
   <properties>
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
@@ -14,7 +14,7 @@
   
   <dependencies>
   		<dependency>
-	  		<groupId>com.ociweb</groupId>
+	  		<groupId>com.javanut</groupId>
             <artifactId>greenlightning</artifactId>
             <version>[${project.version},)</version> <!-- tests with all newer releases -->
     	</dependency>
@@ -108,7 +108,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.ociweb.GreenLightning</mainClass>
+							<mainClass>com.javanut.GreenLightning</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

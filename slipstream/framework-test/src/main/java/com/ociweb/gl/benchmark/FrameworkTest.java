@@ -2,16 +2,10 @@ package com.ociweb.gl.benchmark;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenCommandChannel;
-/**
- * ************************************************************************
- * For greenlightning support, training or feature reqeusts please contact:
- *   info@objectcomputing.com   (314) 579-0066
- * ************************************************************************
- */
-import com.ociweb.gl.api.GreenFramework;
-import com.ociweb.gl.api.GreenRuntime;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenCommandChannel;
+import com.javanut.gl.api.GreenFramework;
+import com.javanut.gl.api.GreenRuntime;
 
 import io.reactiverse.pgclient.PgClient;
 import io.reactiverse.pgclient.PgPool;

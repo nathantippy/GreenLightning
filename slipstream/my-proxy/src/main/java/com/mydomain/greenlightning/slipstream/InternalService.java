@@ -1,10 +1,10 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.HTTPResponseService;
-import com.ociweb.gl.api.RestListener;
-import com.ociweb.pronghorn.network.config.HTTPContentTypeDefaults;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.HTTPResponseService;
+import com.javanut.gl.api.RestListener;
+import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
 
 public class InternalService implements RestListener {
 

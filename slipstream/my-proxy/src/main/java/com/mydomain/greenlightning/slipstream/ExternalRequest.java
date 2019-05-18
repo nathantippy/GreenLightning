@@ -1,11 +1,11 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.api.ClientHostPortInstance;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.HTTPRequestService;
-import com.ociweb.gl.api.PubSubFixedTopicService;
-import com.ociweb.gl.api.RestListener;
+import com.javanut.gl.api.ClientHostPortInstance;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.HTTPRequestService;
+import com.javanut.gl.api.PubSubFixedTopicService;
+import com.javanut.gl.api.RestListener;
 
 public class ExternalRequest implements RestListener {
 

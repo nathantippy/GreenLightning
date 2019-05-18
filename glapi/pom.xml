@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ociweb.oe.greenlightning.api</groupId>
+  <groupId>com.javanut.oe.greenlightning.api</groupId>
   <artifactId>glapi</artifactId>
-  <version>1.0.38</version>
+  <version>1.1.0</version>
   <packaging>pom</packaging>
  
   <modules>

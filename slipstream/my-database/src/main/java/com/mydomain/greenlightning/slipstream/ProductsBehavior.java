@@ -2,13 +2,13 @@ package com.mydomain.greenlightning.slipstream;
 
 import org.h2.tools.Server;
 
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPRequestReader;
-import com.ociweb.gl.api.PubSubFixedTopicService;
-import com.ociweb.gl.api.RestMethodListener;
-import com.ociweb.gl.api.ShutdownListener;
-import com.ociweb.pronghorn.pipe.StructuredReader;
-import com.ociweb.pronghorn.pipe.StructuredWriter;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPRequestReader;
+import com.javanut.gl.api.PubSubFixedTopicService;
+import com.javanut.gl.api.RestMethodListener;
+import com.javanut.gl.api.ShutdownListener;
+import com.javanut.pronghorn.pipe.StructuredReader;
+import com.javanut.pronghorn.pipe.StructuredWriter;
 
 public class ProductsBehavior implements RestMethodListener, ShutdownListener {
 

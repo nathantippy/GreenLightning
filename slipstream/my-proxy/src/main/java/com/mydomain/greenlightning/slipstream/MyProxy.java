@@ -1,12 +1,12 @@
 package com.mydomain.greenlightning.slipstream;
 
-import com.ociweb.gl.api.ClientHostPortInstance;
-import com.ociweb.gl.api.GreenApp;
-import com.ociweb.gl.api.GreenFramework;
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.HTTPClientConfig;
-import com.ociweb.pronghorn.network.HTTPServerConfig;
-import com.ociweb.pronghorn.stage.scheduling.GraphManager;
+import com.javanut.gl.api.ClientHostPortInstance;
+import com.javanut.gl.api.GreenApp;
+import com.javanut.gl.api.GreenFramework;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.HTTPClientConfig;
+import com.javanut.pronghorn.network.HTTPServerConfig;
+import com.javanut.pronghorn.stage.scheduling.GraphManager;
 
 public class MyProxy implements GreenApp {
 
