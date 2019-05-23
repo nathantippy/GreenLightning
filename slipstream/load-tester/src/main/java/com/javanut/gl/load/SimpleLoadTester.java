@@ -1,4 +1,4 @@
-package com.ociweb.gl.load;
+package com.javanut.gl.load;
 
 import com.javanut.gl.api.MsgRuntime;
 import com.javanut.gl.test.LoadTester;

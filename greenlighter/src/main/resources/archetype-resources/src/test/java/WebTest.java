@@ -13,12 +13,12 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.ociweb.gl.api.GreenRuntime;
-import com.ociweb.gl.api.MsgRuntime;
-import com.ociweb.gl.test.LoadTester;
-import com.ociweb.json.encode.JSONRenderer;
-import com.ociweb.pronghorn.util.AppendableBuilder;
-import com.ociweb.pronghorn.util.Appendables;
+import com.javanut.gl.api.GreenRuntime;
+import com.javanut.gl.api.MsgRuntime;
+import com.javanut.gl.test.LoadTester;
+import com.javanut.json.encode.JSONRenderer;
+import com.javanut.pronghorn.util.AppendableBuilder;
+import com.javanut.pronghorn.util.Appendables;
 //import com.test.WebTest.Product;
 
 public class WebTest {

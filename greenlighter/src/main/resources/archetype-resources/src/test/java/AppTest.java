@@ -7,7 +7,7 @@ package ${package};
  */
 import org.junit.Test;
 
-import com.ociweb.gl.api.GreenRuntime;
+import com.javanut.gl.api.GreenRuntime;
 
 /**
  * Unit test for simple App.

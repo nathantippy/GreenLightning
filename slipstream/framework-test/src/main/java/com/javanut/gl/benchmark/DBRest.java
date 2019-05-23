@@ -1,4 +1,4 @@
-package com.ociweb.gl.benchmark;
+package com.javanut.gl.benchmark;
 
 import com.javanut.gl.api.GreenRuntime;
 import com.javanut.gl.api.HTTPRequestReader;

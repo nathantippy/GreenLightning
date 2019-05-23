@@ -4,7 +4,7 @@
 
 	<groupId>com.javanut.gl.benchmark</groupId>
 	<artifactId>benchmark-test</artifactId>
-	<version>1.1.0</version> 
+	<version>1.1.1</version> 
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -97,7 +97,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.ociweb.gl.benchmark.GreenLightning</mainClass>
+							<mainClass>com.javanut.gl.benchmark.GreenLightning</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

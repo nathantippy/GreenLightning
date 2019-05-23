@@ -1,6 +1,6 @@
 package ${package};
 
-import com.ociweb.gl.api.GreenRuntime;
+import com.javanut.gl.api.GreenRuntime;
 
 public class GreenLightning {
 

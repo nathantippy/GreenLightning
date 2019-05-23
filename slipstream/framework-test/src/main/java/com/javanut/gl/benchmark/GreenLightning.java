@@ -1,4 +1,4 @@
-package com.ociweb.gl.benchmark;
+package com.javanut.gl.benchmark;
 
 import com.javanut.gl.api.GreenRuntime;
 import com.javanut.pronghorn.stage.scheduling.GraphManager;
@@ -52,12 +52,15 @@ public class GreenLightning {
 		
 		//System.setProperty("pronghorn.processors", "28"); //set lower since we do testing here... //6 , 8,  12,  16
 		                           
-		System.setProperty("pronghorn.processors", "6"); 
-	//	System.setProperty("pronghorn.processors", "28"); 
+	//	System.setProperty("pronghorn.processors", "6"); 
+		System.setProperty("pronghorn.processors", "28"); 
 		
 		//TODO: need 3 tracks and ramp it up to 750K+ to show 7M on the server
 		//TODO: fix order super...
 		
+		//./wrk -t12 -c512 -d12s http://127.0.0.1:8080/json
+		//./wrk -t12 -c3552 -d32s -s./pipeline.lua  http://127.0.0.1:8080/plaintext -- 16
+
 		
 		//System.setProperty("pronghorn.processors", "1");
 		GreenRuntime.run(new FrameworkTest(),args);
