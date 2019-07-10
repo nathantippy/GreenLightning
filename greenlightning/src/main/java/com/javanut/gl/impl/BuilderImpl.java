@@ -143,7 +143,7 @@ public abstract class BuilderImpl<R extends MsgRuntime<?,?,R>> implements Builde
 
 	private static final Logger logger = LoggerFactory.getLogger(BuilderImpl.class);
 
-	public final PipeConfigManager pcm = new PipeConfigManager(4,2,64);
+	public final PipeConfigManager pcm = new PipeConfigManager(4,16,64);//x 2 x
 	
 	public Enum<?> beginningState;
     

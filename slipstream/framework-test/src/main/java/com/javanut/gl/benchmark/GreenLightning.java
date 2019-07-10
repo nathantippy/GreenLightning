@@ -55,6 +55,8 @@ public class GreenLightning {
 	//	System.setProperty("pronghorn.processors", "6"); 
 		System.setProperty("pronghorn.processors", "28"); 
 		
+	//	System.setProperty("pronghorn.processors", "48"); //??memory limits?
+		
 		//TODO: need 3 tracks and ramp it up to 750K+ to show 7M on the server
 		//TODO: fix order super...
 		

@@ -1,0 +1,9 @@
+./wrk -t12 -c16384 -d32s -s./pipeline.lua  http://127.0.0.1:8080/plaintext -- 16
+
+./wrk -t12 -c512 -d24s http://127.0.0.1:8080/json
+
+docker run --rm  -v `pwd`:/data  williamyeh/wrk -t12 -c16384 -d32s -s./pipeline.lua  http://127.0.0.1:8080/plaintext -- 16
+docker run --rm williamyeh/wrk
+
+
+docker run --rm 478534051034.dkr.ecr.us-east-2.amazonaws.com/gl-load-generator  -t12 -c16384 -d32s -s./pipeline.lua  http://127.0.0.1:8080/plaintext -- 16
