@@ -60,7 +60,7 @@ public class FrameworkTest implements GreenApp {
     		 8080,    	//default port for test 
     		 c,         //pipes per track
     		 c*16,      //(router to module) pipeline of 16 used for plain text test    		 
-    		 1<<13,     //default total size of network buffer used by blocks     		 
+    		 1<<15,     //default total size of network buffer used by blocks     		 
     		 Integer.parseInt(System.getProperty("telemetry.port", "-1")),
     		 "tfb-database", // jdbc:postgresql://tfb-database:5432/hello_world
     		 "hello_world",
@@ -100,7 +100,7 @@ public class FrameworkTest implements GreenApp {
     	this.dbCallMaxResponseSize = 20_000; //for 500 mult db call in JSON format
     	this.jsonMaxResponseSize = 1<<8;
 
-    	this.maxQueueOut = 8;   	
+    	this.maxQueueOut = 8*30;   	
     	this.maxConnectionBits = 14; //16K connections, for test plus overhead
     	
     	this.maxRequestSize = 1<<9;
@@ -179,7 +179,7 @@ public class FrameworkTest implements GreenApp {
     			 .setMaxRequestSize(maxRequestSize)
     	
     			 .setMinimumInputPipeMemory(minMemoryOfInputPipes)
-    			 .setMaxQueueOut(maxQueueOut*30)
+    			 .setMaxQueueOut(maxQueueOut)
     			 .setMaxResponseSize(dbCallMaxResponseSize) //big enough for large mult db response
     	         .useInsecureServer(); //turn off TLS
 
