@@ -1,11 +1,6 @@
 package ${package};
 
-/**
- * ************************************************************************
- * For greenlightning support, training or feature reqeusts please contact:
- *   info@objectcomputing.com   (314) 579-0066
- * ************************************************************************
- */
+
 import com.javanut.gl.api.GreenFramework;
 import com.javanut.gl.api.GreenApp;
 import com.javanut.gl.api.GreenRuntime;

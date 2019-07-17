@@ -26,7 +26,7 @@ public class NamedMessagePassingTest {
 		GraphManager.showThreadIdOnTelemetry = true;
 		GraphManager.showScheduledRateOnTelemetry = true;
 		
-		ServerSocketWriterStage.hardLimtNS = 2_000;
+		ServerSocketWriterStage.HARD_LIMIT_NS = 2_000;
 		
 		boolean telemetry = false;
 		//ust not be true when checked in.

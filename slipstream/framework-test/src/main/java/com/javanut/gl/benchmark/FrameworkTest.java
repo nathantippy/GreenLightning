@@ -173,7 +173,7 @@ public class FrameworkTest implements GreenApp {
     			 .setConcurrentChannelsPerEncryptUnit(concurrentWritesPerChannel/25)  ///80) ///16) // /8)//4)
     			 //TODO: we need smaller count of connections but MORE writers.
     			 
-    			 .disableEPoll() //provides advantage in JSON test....
+    			 //.disableEPoll() //provides advantage in JSON test....
  						 
     			 .setMaxQueueIn(queueLengthOfPendingRequests)
     			 .setMaxRequestSize(maxRequestSize)
