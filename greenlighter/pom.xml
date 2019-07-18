@@ -4,7 +4,7 @@
     <groupId>com.javanut</groupId>
     <artifactId>greenlighter</artifactId>
     <name>greenlighter</name>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
 
     <description>A Maven archetype for GreenLightning projects</description>
     <url>https://github.com/nathantippy/GreenLightning/tree/master/greenlighter</url>

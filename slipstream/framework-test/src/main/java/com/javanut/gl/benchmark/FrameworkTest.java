@@ -6,6 +6,7 @@ import com.javanut.gl.api.GreenApp;
 import com.javanut.gl.api.GreenCommandChannel;
 import com.javanut.gl.api.GreenFramework;
 import com.javanut.gl.api.GreenRuntime;
+import com.javanut.pronghorn.network.ServerSocketWriterStage;
 
 import io.reactiverse.pgclient.PgClient;
 import io.reactiverse.pgclient.PgPool;
@@ -159,7 +160,8 @@ public class FrameworkTest implements GreenApp {
 	@Override
     public void declareConfiguration(GreenFramework framework) {
 		
-		framework.setDefaultRate(100_000L);		
+		framework.setDefaultRate(20_000L);
+		ServerSocketWriterStage.BASE_ADJUST = 20;
 	
 		//for 14 cores this is expected to use less than 16G, must use next largest prime to ensure smaller groups are not multiples.
 		framework.useHTTP1xServer(bindPort, this::parallelBehavior) //standard auto-scale
