@@ -2,6 +2,7 @@ package com.javanut.gl.benchmark;
 
 import com.javanut.gl.api.GreenRuntime;
 import com.javanut.pronghorn.stage.scheduling.GraphManager;
+import com.javanut.pronghorn.stage.scheduling.ScriptedNonThreadScheduler;
 
 public class GreenLightning {
 
@@ -15,7 +16,7 @@ public class GreenLightning {
     	    	
 		//ServerSocketReaderStage.showRequests = true;
 		
-		//ScriptedNonThreadScheduler.debugStageOrder = System.out;
+	//	ScriptedNonThreadScheduler.debugStageOrder = System.out;
 		
 		//TODO: we have reactors in the wrong order after the consume ordering stage.. must fix
 		//TODO: the TrackHTTPResponseListener private class is the new high cpu stage for full test.
@@ -52,7 +53,7 @@ public class GreenLightning {
 		
 		//System.setProperty("pronghorn.processors", "28"); //set lower since we do testing here... //6 , 8,  12,  16
 		                           
-	//	System.setProperty("pronghorn.processors", "6"); 
+	//	System.setProperty("pronghorn.processors", "26"); 
 		System.setProperty("pronghorn.processors", "28"); 
 		
 	//	System.setProperty("pronghorn.processors", "48"); //??memory limits?

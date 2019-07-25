@@ -4,7 +4,7 @@
 	
 	<groupId>com.javanut.gl.load</groupId>
 	<artifactId>load-tester</artifactId>
-	<version>1.1.6</version>
+	<version>1.1.7</version>
 
 	<properties>
 		<keystore.path>./certificates/ocikeystore.jks</keystore.path>
@@ -105,7 +105,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.ociweb.gl.load.SimpleLoadTester</mainClass>
+							<mainClass>com.javanut.gl.load.SimpleLoadTester</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

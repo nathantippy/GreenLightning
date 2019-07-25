@@ -3,7 +3,7 @@
     <groupId>com.javanut</groupId>
     <artifactId>greenlightning</artifactId>
     <name>greenlightning</name>
-    <version>1.1.6</version>
+    <version>1.1.7</version>
 
     <description>Open Edge - Green Lightning Micro-Service Runtime</description>
     <url>https://github.com/nathantippy/GreenLightning/tree/master/greenlightning</url>
@@ -108,7 +108,7 @@
         <dependency>
             <groupId>com.javanut</groupId>
             <artifactId>pronghorn</artifactId>
-            <version>1.1.6</version>
+            <version>1.1.7</version>
         </dependency>
 
         <dependency>
@@ -228,7 +228,7 @@
                           <transformers>
 			                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 			                  <manifestEntries>
-			                    <Main-Class>com.ociweb.GreenLightning</Main-Class>			                 
+			                    <Main-Class>com.javanut.GreenLightning</Main-Class>			                 
 			                  </manifestEntries>
 			                </transformer>
 			              </transformers>
@@ -262,7 +262,7 @@
 	    <artifactId>excelsior-jet-maven-plugin</artifactId>
 	    <version>0.9.5</version>
 	    <configuration>
-	        <mainClass>com.ociweb.GreenLightning</mainClass>
+	        <mainClass>com.javanut.GreenLightning</mainClass>
 		<profileStartup>false</profileStartup>
 		<runtime>
 		    <flavor>server</flavor>
