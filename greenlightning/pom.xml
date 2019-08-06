@@ -3,7 +3,7 @@
     <groupId>com.javanut</groupId>
     <artifactId>greenlightning</artifactId>
     <name>greenlightning</name>
-    <version>1.1.7</version>
+    <version>1.1.8</version>
 
     <description>Open Edge - Green Lightning Micro-Service Runtime</description>
     <url>https://github.com/nathantippy/GreenLightning/tree/master/greenlightning</url>
@@ -108,7 +108,7 @@
         <dependency>
             <groupId>com.javanut</groupId>
             <artifactId>pronghorn</artifactId>
-            <version>1.1.7</version>
+            <version>1.1.8</version>
         </dependency>
 
         <dependency>

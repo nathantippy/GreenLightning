@@ -238,16 +238,19 @@ public class HTTPResponseService {
 	 * @return publishHTTPResponse(reqeustReader.getConnectionId (), reqeustReader.getSequenceCode(),
 	 * 				false, headers, 200, writable)
 	 */
-	public boolean publishHTTPResponse(HTTPFieldReader reqeustReader, 
-	           HeaderWritable headers, HTTPContentType contentType, Writable writable) {
+	public boolean publishHTTPResponse(HTTPFieldReader reqeustReader, HeaderWritable headers, HTTPContentType contentType, Writable writable) {
 		return publishHTTPResponse(reqeustReader.getConnectionId(), reqeustReader.getSequenceCode(),
 				200, false, headers, contentType, writable);
 	}
 
-	public boolean publishHTTPResponse(HTTPFieldReader<?> reqeustReader, 
-	           HTTPContentType contentType, Writable writable) {
+	public boolean publishHTTPResponse(HTTPFieldReader<?> reqeustReader, HTTPContentType contentType, Writable writable) {
 		return publishHTTPResponse(reqeustReader.getConnectionId(), reqeustReader.getSequenceCode(),
 				200, false, null, contentType, writable);
+	}
+	
+	public boolean publishHTTPResponse(HTTPFieldReader<?> reqeustReader, HTTPContentType contentType, Writable writable, int maxHeaderReservation) {
+		return publishHTTPResponse(reqeustReader.getConnectionId(), reqeustReader.getSequenceCode(),
+				200, false, null, contentType, writable, maxHeaderReservation);
 	}
 	
 	/**
@@ -263,14 +266,31 @@ public class HTTPResponseService {
 	public boolean publishHTTPResponse(long connectionId, long sequenceCode, 
 							           int statusCode, boolean hasContinuation, HeaderWritable headers,
 							           HTTPContentType contentType, Writable writable) {
+		return publishHTTPResponse(connectionId, sequenceCode, statusCode, hasContinuation, headers, contentType, writable, Integer.MAX_VALUE);
+	}
+	/**
+	 *
+	 * @param connectionId long arg used in msgCommandChannel.holdEmptyBlock and Pipe.addLongValue
+	 * @param sequenceCode long arg set as final int sequenceNo and parallelIndex
+	 * @param statusCode int arg used to display status code to user
+	 * @param hasContinuation boolean used to determine of msgCommandChannel.lastResponseWriterFinished or outputStream.write
+	 * @param headers HeaderWritable arg. If !null write(msgCommandChannel.headerWriter.target(outputStream))
+	 * @param writable Writable arg used to write outputStream
+	 * @param max header size to allocate for future updates
+	 * @return if !Pipe.hasRoomForWrite(pipe) return false else return true
+	 */
+	public boolean publishHTTPResponse(long connectionId, long sequenceCode, 
+							           int statusCode, boolean hasContinuation, HeaderWritable headers,
+							           HTTPContentType contentType, Writable writable, int maxHeaderSize) {
+		
+		
 		assert((0 != (msgCommandChannel.initFeatures & MsgCommandChannel.NET_RESPONDER))) : "CommandChannel must be created with NET_RESPONDER flag";
-		
-		final int parallelIndex = 0xFFFFFFFF & (int)(sequenceCode>>32);
-		
 		assert(1==msgCommandChannel.lastResponseWriterFinished) : "Previous write was not ended can not start another.";
 		
-		Pipe<ServerResponseSchema> pipe = msgCommandChannel.netResponse.length>1 ? msgCommandChannel.netResponse[parallelIndex] : msgCommandChannel.netResponse[0];
-		
+		Pipe<ServerResponseSchema> pipe = msgCommandChannel.netResponse.length>1 ?
+																  msgCommandChannel.netResponse[0xFFFFFFFF & (int)(sequenceCode>>32)] //parallelIndex
+																: msgCommandChannel.netResponse[0];
+
 		//header and pay load sent as 2 writes
 		if (!Pipe.hasRoomForWrite(pipe, TWO_RESPONSE_BLOCKS_SIZE)) {
 			return false;
@@ -282,7 +302,12 @@ public class HTTPResponseService {
 		///////////////////////////////////////
 		//message 1 which contains the headers
 		//////////////////////////////////////
-		HTTPUtilResponse.holdEmptyBlock(msgCommandChannel.data, connectionId, sequenceNo, pipe);
+		//this feature causes a hang under 16 load. TODO: review this later
+//		if (null==headers && maxHeaderSize>MIN_HEADER_LEN) {
+//			//we have no special headers so we can reduce the header reservation by a lot based on the 3 fields we know are writen.
+//			maxHeaderSize = MIN_HEADER_LEN;			
+//		}
+		HTTPUtilResponse.holdEmptyBlock(msgCommandChannel.data, connectionId, sequenceNo, pipe, Math.min(pipe.maxVarLen, maxHeaderSize));
 		
 		//////////////////////////////////////////
 		//begin message 2 which contains the body
@@ -352,6 +377,10 @@ public class HTTPResponseService {
 		outputStream.writeByte('\n');
 	}
 
+	public static int MIN_HEADER_LEN = HTTPHeaderDefaults.SERVER.writingRoot().length()+SERVER_HEADER_NAME.length+2
+			                         + HTTPHeaderDefaults.CONTENT_TYPE.writingRoot().length()+50 //LONGEST CONTENT TYPE 50 (GUESS)
+	                                 + HTTPHeaderDefaults.CONTENT_LENGTH.writingRoot().length()+20; //base 10 number plust 2 returns
+	
 	private static void writeHeadersWithHeaderWriter(HeaderWritable headers, HTTPContentType contentType,
 			NetResponseWriter outputStream, int len, HeaderWriter headerWriter) {
 		if (null!=headers) {
@@ -466,28 +495,26 @@ public class HTTPResponseService {
 	 */
 	public boolean hasRoomFor(int messageCount) {
 
-		boolean goHasRoom = null==msgCommandChannel.goPipe || Pipe.hasRoomForWrite(msgCommandChannel.goPipe, maxGoFragmentSize*messageCount);
-		
-		if (goHasRoom) {
-			
 			if (msgCommandChannel.netResponse != null) {
+				int sizeInvariant = maxNetRespFragmentSize*messageCount;
 				//since we do not know the exact publication we must check 
 				//all of them and ensure they each have room.
-				int i = msgCommandChannel.netResponse.length;
+				final Pipe<ServerResponseSchema>[] netResponse = msgCommandChannel.netResponse;
+				int i = netResponse.length;
 				while (--i >= 0) {
-					if (!Pipe.hasRoomForWrite(msgCommandChannel.netResponse[i], maxNetRespFragmentSize*messageCount)) {
+					if (!Pipe.hasRoomForWrite(netResponse[i], sizeInvariant)) {
 						return false;
 					}		
 				}
+				return (null==msgCommandChannel.goPipe || Pipe.hasRoomForWrite(msgCommandChannel.goPipe, maxGoFragmentSize*messageCount));
 			} else {
-				return msgCommandChannel.builder.pcm.getConfig(ServerResponseSchema.class).minimumFragmentsOnPipe()>=messageCount;				
+				if ((null==msgCommandChannel.goPipe || Pipe.hasRoomForWrite(msgCommandChannel.goPipe, maxGoFragmentSize*messageCount))) {
+					return msgCommandChannel.builder.pcm.getConfig(ServerResponseSchema.class).minimumFragmentsOnPipe()>=messageCount;		
+				} else {
+					return false;
+				}
 			}
-			
-			return goHasRoom;
-		} else {
-			return false;//go had no room so we stopped early
-		}
-		
+				
 	}
 	
 	
