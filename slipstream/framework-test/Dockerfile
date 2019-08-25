@@ -13,7 +13,7 @@ EXPOSE 8098
 EXPOSE 7091
 EXPOSE 1099
 
-CMD ["java","-server","-Xmx29g","-XX:AutoBoxCacheMax=1000000","-XX:+FlightRecorder","-jar","app.jar"]
+CMD ["java","-server","-Xmx29g","-XX:AutoBoxCacheMax=1000000","-XX:NewSize=64m","-XX:+FlightRecorder","-jar","app.jar"]
 
 #sudo docker run --network host  478534051034.dkr.ecr.us-east-2.amazonaws.com/gl-repo java -server -Xmx29g -Dxx.rate=100000 -Dxx.ratio=1 -Dxx.xx.limitns=80000 -jar app.jar
 ## pass all args 
