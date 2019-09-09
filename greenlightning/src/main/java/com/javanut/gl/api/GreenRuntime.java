@@ -72,15 +72,17 @@ public class GreenRuntime extends MsgRuntime<BuilderImpl<GreenRuntime>, Listener
 			                       Runnable cleanShutdown,
 			                       Runnable dirtyShutdown
 								) {
+		logger.trace("start greenruntime");
 		GreenRuntime runtime = new GreenRuntime(args, app.getClass().getSimpleName());
 		app.declareConfiguration((GreenFramework)runtime.getBuilder());
-
-	    GraphManager.addDefaultNota(runtime.gm, GraphManager.SCHEDULE_RATE, runtime.builder.getDefaultSleepRateNS());
+		GraphManager.addDefaultNota(runtime.gm, GraphManager.SCHEDULE_RATE, runtime.builder.getDefaultSleepRateNS());
+		logger.trace("finished declare config");
 
 	    runtime.declareBehavior(app);
-
+	    logger.info("finished declare behavior");
 		runtime.builder.buildStages(runtime);
 		
+		logger.trace("finished building stages");
 	    //runtime.logStageScheduleRates();
 
 		TelemetryConfig telemetryConfig = runtime.builder.getTelemetryConfig();

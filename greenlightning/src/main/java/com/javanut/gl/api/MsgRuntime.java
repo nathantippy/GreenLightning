@@ -422,12 +422,14 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 	//////////////////
 	@SuppressWarnings("unchecked")
 	public void declareBehavior(MsgApp app) {
-
+		logger.trace("begin declare behavior");
 		//The server and telemetry http hosts/ports MUST be defined before we begin 
 		//the declaration of behaviors because we must do binding to the host names.
 		//as a result this finalize must happen early.
 		builder.finalizeDeclareConnections();
 		////////////////////////////////////////////
+		
+		logger.trace("finalize declare connections");
 		
 		if (builder.getHTTPServerConfig() != null) {
 		    buildGraphForServer(app);
@@ -451,7 +453,7 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 			
 		}
 		
-		
+		logger.trace("begin contruct parallel endings");
 		
 		constructingParallelInstancesEnding();
 		
@@ -469,6 +471,8 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 	private void buildGraphForServer(MsgApp app) {
 
 		HTTPServerConfig config = builder.getHTTPServerConfig();
+
+		logger.trace("begin buildGraphForServer");
 		
 		//////////////////////////
 		//////////////////////////
@@ -520,13 +524,13 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 		final Pipe<NetPayloadSchema>[] encryptedIncomingGroup = Pipe.buildPipes(serverConfig.maxConcurrentInputs, 
 											serverConfig.pcmIn.getConfig(NetPayloadSchema.class));           
 		
-
 		
 		Pipe[] acks = NetGraphBuilder.buildSocketReaderStage(
 				           gm, serverCoord,
 						   builder.getGroupsCount(), builder.getTracksPerGroup(), 
 						   encryptedIncomingGroup);
 		               
+		
 		Pipe[] handshakeIncomingGroup=null;
 		Pipe[] planIncomingGroup;
 		
@@ -542,7 +546,7 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 		}
 		////////////////////////
 		////////////////////////
-		
+
 		//Must call here so the beginning stages of the graph are drawn first when exporting graph.
 		app.declareBehavior(this);
 		buildModulesForServer(app);
@@ -553,6 +557,7 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 		constructingBridges();
 		builder.initAllPendingReactors();
 		
+
 		buildLastHalfOfGraphForServerImpl(serverConfig, serverCoord, builder.parallelTracks(), acks, handshakeIncomingGroup,
 				planIncomingGroup);
 	}
