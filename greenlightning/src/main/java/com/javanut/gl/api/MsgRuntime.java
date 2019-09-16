@@ -495,7 +495,7 @@ public class MsgRuntime<B extends BuilderImpl, L extends ListenerFilter, G exten
 					r.getDecryptionUnitsPerTrack(),
 					r.getConcurrentChannelsPerDecryptUnit(),				
 					//one message might be broken into this many parts
-					r.getSocketToParserBlocks(), r.getMinimumInputPipeMemory(),//blocks # from socket to parser...
+					r.getSocketToParserBlocks(), 
 					r.getMaxRequestSize(),
 					r.getMaxResponseSize(),
 					config.getMaxQueueIn(),
