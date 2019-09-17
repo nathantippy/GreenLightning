@@ -150,7 +150,7 @@ public class ProcessUpdate {
 						DBUpdateInFlight.moveHeadForward(); //always move to ensure this can be read.
 				
 				}
-				outerPool.close();
+				//outerPool.close();
 			return true;
 		} else {
 			requestsInFlight.decrementAndGet();

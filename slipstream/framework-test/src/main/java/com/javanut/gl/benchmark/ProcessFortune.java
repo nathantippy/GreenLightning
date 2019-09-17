@@ -40,7 +40,7 @@ public class ProcessFortune {
 				}
 			}	
 			if (null==temp && myPool!=null) { //new test
-				myPool.close();
+				//myPool.close();
 				myPool = null;
 			}
 		}
