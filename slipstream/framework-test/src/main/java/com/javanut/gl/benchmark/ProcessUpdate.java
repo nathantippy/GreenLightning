@@ -64,26 +64,27 @@ public class ProcessUpdate {
 		
 		if (DBUpdateInFlight.hasRoomFor(queries) && service.hasRoomFor(temp) ) {		
 	
-		    final AtomicBoolean ok = new AtomicBoolean();
+		   // final AtomicBoolean ok = new AtomicBoolean();
 		    
-			pm.pool().getConnection(result -> {
+			//pm.pool().getConnection(result -> {
 				
-				if (result.succeeded()) {
+				//if (result.succeeded()) {
 				
-					SqlConnection connection = result.result();					
-					processConnection(queries, conId, seqCode, connection);
-					connection.close();
-					ok.set(true);
+					//SqlConnection connection = result.result();					
+					processConnection(queries, conId, seqCode);
+					//connection.close();
 					
-				} else {
-					requestsInFlight.decrementAndGet();			
-					ok.set(false);
+				//	ok.set(true);
 					
-				}
+				//} else {
+				//	requestsInFlight.decrementAndGet();			
+				//	ok.set(false);
+				//}
 				
-			});
+			//});
 				
-			return ok.get();
+			//return ok.get();
+			return true;
 		} else {
 			requestsInFlight.decrementAndGet();
 			return false;
@@ -91,7 +92,10 @@ public class ProcessUpdate {
 	}
 
 
-	private void processConnection(int queries, long conId, long seqCode, SqlConnection connection) {
+	private void processConnection(int queries, long conId, long seqCode) {
+		
+			
+		
 		//NEW List<Tuple> args = new ArrayList<Tuple>(queries);
 		List<ResultObject> objs = new ArrayList<ResultObject>(queries);
 		int q = queries;
@@ -109,7 +113,7 @@ public class ProcessUpdate {
 				worldObject.setId(randomValue());
 				objs.add(worldObject);					
 				
-				connection.preparedQuery("SELECT * FROM world WHERE id=$1", Tuple.of(worldObject.getId()), r -> {
+				pm.pool().preparedQuery("SELECT * FROM world WHERE id=$1", Tuple.of(worldObject.getId()), r -> {
 						if (r.succeeded()) {
 																
 							RowIterator<Row> resultSet = r.result().iterator();
