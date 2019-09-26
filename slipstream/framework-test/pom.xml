@@ -35,9 +35,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>io.reactiverse</groupId>
-		    <artifactId>reactive-pg-client</artifactId>
-		    <version>0.11.2</version>
+			 <groupId>io.vertx</groupId>
+			 <artifactId>vertx-pg-client</artifactId>
+			 <version>4.0.0-milestone3</version>
 		</dependency>
 
 	</dependencies>
