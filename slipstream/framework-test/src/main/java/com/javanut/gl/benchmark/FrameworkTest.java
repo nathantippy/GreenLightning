@@ -141,7 +141,6 @@ public class FrameworkTest implements GreenApp {
     		options = new PgConnectOptions()
     				.setPort(connectionPort)
     				.setPipeliningLimit(1<<pipelineBits)
-    	//			.setMaxWaitQueueSize(1<<pipelineBits)
     				.setHost(connectionHost)
     				.setDatabase(connectionDB)
     				.setUser(connectionUser)
@@ -149,8 +148,7 @@ public class FrameworkTest implements GreenApp {
     				.setCachePreparedStatements(true)
     				.setTcpNoDelay(true)
     				.setTcpKeepAlive(true)
-    		//		.setUsePooledBuffers(false)
-    		//		.setMaxSize(connectionsPerTrack)
+    				
     				;	    	
 
     		poolOptions = new PoolOptions()
