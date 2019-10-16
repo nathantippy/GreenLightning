@@ -143,11 +143,9 @@ public class FrameworkTest implements GreenApp {
     				.setPassword(connectionPassword)    		
     				.setCachePreparedStatements(true)
     				.setTcpNoDelay(true)
-    				.setTcpKeepAlive(true)
-    				
-    				;	    	
+    				.setTcpKeepAlive(true);	    	
 
-    		poolOptions = new PoolOptions()
+    		poolOptions = new PoolOptions()    				
     				  .setMaxSize(connectionsPerTrack);
     		
     		///early check to know if we have a database or not,
