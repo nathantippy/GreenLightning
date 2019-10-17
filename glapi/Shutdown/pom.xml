@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.javanut.oe.greenlightning.api</groupId>
   <artifactId>shutdown</artifactId>
-  <version>1.1.13</version>
+  <version>1.1.14</version>
   
   <properties>
     <java.bootstrap.classes>${java.home}/lib/rt.jar</java.bootstrap.classes>
