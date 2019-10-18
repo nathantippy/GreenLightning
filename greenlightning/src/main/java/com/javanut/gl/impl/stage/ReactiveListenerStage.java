@@ -900,31 +900,36 @@ public class ReactiveListenerStage<H extends BuilderImpl> extends ReactiveProxy 
     	    	  long connectionId = Pipe.takeLong(p);
     	    	  final int sequenceNo = Pipe.takeInt(p);    	    	  
 
-    	    	  int routeVerb = Pipe.takeInt(p);
-    	    	  int routeId = routeVerb>>>HTTPVerb.BITS;
-    	    	  int verbId = HTTPVerb.MASK & routeVerb;
-    	    	      	    	      	    	  
+    	    	  final int routeVerb = Pipe.takeInt(p);
+    	    	  final int routeId = routeVerb>>>HTTPVerb.BITS;
     	    	  HTTPRequestReader reader = (HTTPRequestReader)Pipe.openInputStream(p);
    	  				  
-    	    	  int parallelRevision = Pipe.takeInt(p);
-    	    	  int parallelIdx = parallelRevision >>> HTTPRevision.BITS;
-    	    	  int revision = HTTPRevision.MASK & parallelRevision;
+    	    	  final int parallelRevision = Pipe.takeInt(p);
     	    	  
     	    	  //TODO: can we get this struct ID better???
     			  int structId = DataInputBlobReader.getStructType(reader);
+    			  //is this always the same for this MSG_RESTREQUEST_300 ??
     			  
-				  populateReader(p, connectionId, sequenceNo, routeId, verbId, reader, parallelIdx, revision, structId);
+				  populateReader(p, connectionId, sequenceNo, routeId, 
+						         HTTPVerb.MASK & routeVerb, reader, 
+						         parallelRevision >>> HTTPRevision.BITS,
+						         HTTPRevision.MASK & parallelRevision, structId);
  			
     	    	  if (null!=restRequestReader && 
     	    	      routeId<restRequestReader.length &&
     	    	      null!=restRequestReader[routeId]) {
     	    	
-    	    		  if (!restRequestReader[routeId].restRequest(listener, reader)) {
+    	    		  if (restRequestReader[routeId].restRequest(listener, reader)) {
+    	    			  Pipe.confirmLowLevelRead(p, SIZE_OF_REST_REQUEST);
+    	    	    	  Pipe.releaseReadLock(p);
+    	    		  } else {
     	    			  Pipe.resetTail(p);
-		            	  return;//continue later and repeat this same value.
+    	    			  return;//continue later and repeat this same value.
     	    		  }
     	    		  
+    	    		  
     	    	  } else {
+    	    		  
     	    		  if (listener instanceof RestListener) {
     	    			  
 		    	    	  if (!((RestListener)listener).restRequest(reader)) {
@@ -932,10 +937,10 @@ public class ReactiveListenerStage<H extends BuilderImpl> extends ReactiveProxy 
 			            		 return;//continue later and repeat this same value.
 			              }
     	    		  }
+    	    		  Pipe.confirmLowLevelRead(p, SIZE_OF_REST_REQUEST);
+    	    		  Pipe.releaseReadLock(p);
     	    	  }
     	    	  
-    	    	  Pipe.confirmLowLevelRead(p, SIZE_OF_REST_REQUEST);
-    	    	  Pipe.releaseReadLock(p);
     	    	  
     	      } else {
     	    	  logger.error("unrecognized message on {} ",p);

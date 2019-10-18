@@ -287,43 +287,45 @@ public class HTTPResponseService {
 		assert((0 != (msgCommandChannel.initFeatures & MsgCommandChannel.NET_RESPONDER))) : "CommandChannel must be created with NET_RESPONDER flag";
 		assert(1==msgCommandChannel.lastResponseWriterFinished) : "Previous write was not ended can not start another.";
 		
-		Pipe<ServerResponseSchema> pipe = msgCommandChannel.netResponse.length>1 ?
-																  msgCommandChannel.netResponse[0xFFFFFFFF & (int)(sequenceCode>>32)] //parallelIndex
-																: msgCommandChannel.netResponse[0];
+		Pipe<ServerResponseSchema> pipe = msgCommandChannel.netResponse.length>1 
+												? msgCommandChannel.netResponse[0xFFFFFFFF & (int)(sequenceCode>>32)] //parallelIndex
+												: msgCommandChannel.netResponse[0];
 
 		//header and pay load sent as 2 writes
-		if (!Pipe.hasRoomForWrite(pipe, TWO_RESPONSE_BLOCKS_SIZE)) {
+		if (Pipe.hasRoomForWrite(pipe, TWO_RESPONSE_BLOCKS_SIZE)) {
+				
+			final int sequenceNo = 0xFFFFFFFF & (int)sequenceCode;
+							
+			assert(validator.isValidSequence(connectionId, sequenceCode));
+			
+			///////////////////////////////////////
+			//message 1 which contains the headers
+			//////////////////////////////////////
+			//this feature causes a hang under 16 load. TODO: review this later
+	//		if (null==headers && maxHeaderSize>MIN_HEADER_LEN) {
+	//			//we have no special headers so we can reduce the header reservation by a lot based on the 3 fields we know are writen.
+	//			maxHeaderSize = MIN_HEADER_LEN;			
+	//		}
+			HTTPUtilResponse.holdEmptyBlock(msgCommandChannel.data, connectionId, sequenceNo, pipe, Math.min(pipe.maxVarLen, maxHeaderSize));
+			
+			//////////////////////////////////////////
+			//begin message 2 which contains the body
+			//////////////////////////////////////////
+			
+			Pipe.addMsgIdx(pipe, ServerResponseSchema.MSG_TOCHANNEL_100);
+			Pipe.addLongValue(connectionId, pipe);
+			Pipe.addIntValue(sequenceNo, pipe);	
+			
+			NetResponseWriter outputStream = (NetResponseWriter)Pipe.outputStream(pipe);
+			
+			int len = writePayload(hasContinuation, writable, pipe, outputStream);
+			   	
+			writeHeaderAndPublish(statusCode, headers, contentType, pipe, outputStream, len, msgCommandChannel);
+			
+			return true;
+		} else {
 			return false;
-		}		
-		final int sequenceNo = 0xFFFFFFFF & (int)sequenceCode;
-						
-		assert(validator.isValidSequence(connectionId, sequenceCode));
-		
-		///////////////////////////////////////
-		//message 1 which contains the headers
-		//////////////////////////////////////
-		//this feature causes a hang under 16 load. TODO: review this later
-//		if (null==headers && maxHeaderSize>MIN_HEADER_LEN) {
-//			//we have no special headers so we can reduce the header reservation by a lot based on the 3 fields we know are writen.
-//			maxHeaderSize = MIN_HEADER_LEN;			
-//		}
-		HTTPUtilResponse.holdEmptyBlock(msgCommandChannel.data, connectionId, sequenceNo, pipe, Math.min(pipe.maxVarLen, maxHeaderSize));
-		
-		//////////////////////////////////////////
-		//begin message 2 which contains the body
-		//////////////////////////////////////////
-		
-		Pipe.addMsgIdx(pipe, ServerResponseSchema.MSG_TOCHANNEL_100);
-		Pipe.addLongValue(connectionId, pipe);
-		Pipe.addIntValue(sequenceNo, pipe);	
-		
-		NetResponseWriter outputStream = (NetResponseWriter)Pipe.outputStream(pipe);
-		
-		int len = writePayload(hasContinuation, writable, pipe, outputStream);
-		   	
-		writeHeaderAndPublish(statusCode, headers, contentType, pipe, outputStream, len, msgCommandChannel);
-		
-		return true;
+		}
 	}
 
 	private int writePayload(boolean hasContinuation, Writable writable, Pipe<ServerResponseSchema> pipe,
