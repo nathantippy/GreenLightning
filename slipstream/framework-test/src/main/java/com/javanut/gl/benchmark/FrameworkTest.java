@@ -23,7 +23,7 @@ public class FrameworkTest implements GreenApp {
     private int concurrentWritesPerChannel;
   
     private int telemetryPort;//for monitoring
-    private int minMemoryOfInputPipes;
+  
     private int dbCallMaxResponseSize;
 	private	final int dbCallMaxResponseCount;
     private int pipelineBits;
@@ -51,7 +51,7 @@ public class FrameworkTest implements GreenApp {
 	//TODO: add utility to compute this based on need.
 	static final int c = 148;//293;//592; // to reach 16K simultaneous calls
 
-	private final long defaultRate = Long.parseLong(System.getProperty("xx.rate", "120000")); //was 180000
+	private final long defaultRate = Long.parseLong(System.getProperty("xx.rate", "120000")); 
 	//Need to record how many records per pass are done...
 	
 	static {
