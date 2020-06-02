@@ -16,7 +16,7 @@ Benchmarks for Green Lightning are provided by the [Green Loader](https://github
 ## Getting Started
 
 Starter Project Instructions:
-https://github.com/nathantippy/GreenLightning/GreenLighter
+https://github.com/nathantippy/GreenLightning/tree/master/greenlighter
 
 Sample Projects:
 https://github.com/nathantippy/GreenLightning
