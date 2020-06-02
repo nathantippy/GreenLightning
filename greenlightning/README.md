@@ -16,16 +16,13 @@ Benchmarks for Green Lightning are provided by the [Green Loader](https://github
 ## Getting Started
 
 Starter Project Instructions:
-https://github.com/oci-pronghorn/GreenLighter
+https://github.com/nathantippy/GreenLightning/GreenLighter
 
 Sample Projects:
-https://github.com/oci-pronghorn/GreenLightning-API
-https://github.com/oci-pronghorn/GreenLightning-Examples
+https://github.com/nathantippy/GreenLightning
 
 ## Contributing
 
 The code on GitHub:
-https://github.com/oci-pronghorn/GreenLightning
+https://github.com/nathantippy/GreenLightning
 
-The build server:
-https://pronghorn.ci.cloudbees.com/job/GreenLightning/
