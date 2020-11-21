@@ -16,6 +16,7 @@ import com.javanut.pronghorn.network.schema.ServerResponseSchema;
 import com.javanut.pronghorn.pipe.FieldReferenceOffsetManager;
 import com.javanut.pronghorn.pipe.Pipe;
 import com.javanut.pronghorn.pipe.PipeConfig;
+import com.javanut.pronghorn.pipe.Writable;
 import com.javanut.pronghorn.util.Appendables;
 
 public class HTTPResponseService {

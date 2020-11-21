@@ -3,6 +3,7 @@ package com.javanut.gl.api;
 import com.javanut.gl.impl.mqtt.MQTTConfigSubscription;
 import com.javanut.gl.impl.mqtt.MQTTConfigTransmission;
 import com.javanut.pronghorn.network.TLSCertificates;
+import com.javanut.pronghorn.pipe.Writable;
 
 public interface MQTTBridge extends BridgeConfig<MQTTConfigTransmission, MQTTConfigSubscription> {
 

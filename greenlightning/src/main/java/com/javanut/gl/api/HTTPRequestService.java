@@ -10,6 +10,7 @@ import com.javanut.pronghorn.network.schema.ClientHTTPRequestSchema;
 import com.javanut.pronghorn.pipe.DataOutputBlobWriter;
 import com.javanut.pronghorn.pipe.FieldReferenceOffsetManager;
 import com.javanut.pronghorn.pipe.Pipe;
+import com.javanut.pronghorn.pipe.Writable;
 
 
 public class HTTPRequestService {

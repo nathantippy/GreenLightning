@@ -1,9 +1,9 @@
 package com.javanut.gl.impl.file;
 
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.pipe.DataOutputBlobWriter;
 import com.javanut.pronghorn.pipe.Pipe;
 import com.javanut.pronghorn.pipe.PipeWriter;
+import com.javanut.pronghorn.pipe.Writable;
 import com.javanut.pronghorn.stage.file.schema.PersistedBlobStoreProducerSchema;
 
 public class SerialStoreProducer {

@@ -23,14 +23,14 @@ public class NamedMessagePassingTest {
 		int port = (int) (2000 + (System.nanoTime()%12000));
 		
 		ClientSocketReaderStage.abandonSlowConnections = false;
-		GraphManager.showThreadIdOnTelemetry = true;
-		GraphManager.showScheduledRateOnTelemetry = true;
+		GraphManager.showThreadIdOnTelemetry = false;
+		GraphManager.showScheduledRateOnTelemetry = false;
 		
 		ServerSocketWriterStage.HARD_LIMIT_NS = 2_000;
 		
 		boolean telemetry = false;
 		//ust not be true when checked in.
-		long cycleRate = 6_000; //larger rate should be used with greater volume..
+		long cycleRate = 5_000; //larger rate should be used with greater volume..
 
 		//note only 4 threads in use and this should probably be 3
 		//ScriptedNonThreadScheduler.debugStageOrder = System.out;

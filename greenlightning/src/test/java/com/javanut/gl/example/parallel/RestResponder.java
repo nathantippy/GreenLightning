@@ -5,11 +5,11 @@ import com.javanut.gl.api.GreenRuntime;
 import com.javanut.gl.api.HTTPResponseService;
 import com.javanut.gl.api.MsgCommandChannel;
 import com.javanut.gl.api.PubSubListener;
-import com.javanut.gl.api.Writable;
 import com.javanut.json.encode.JSONRenderer;
 import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
 import com.javanut.pronghorn.pipe.ChannelReader;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class RestResponder implements PubSubListener{
 
@@ -19,7 +19,7 @@ public class RestResponder implements PubSubListener{
 	
 	
     private static final JSONRenderer<ChannelReader> jsonRenderer = new JSONRenderer<ChannelReader>()
-            .beginObject()
+            .startObject()
             .integer("value", o->o.readPackedInt())
             .string("other", (o,t)->t.append("text"))
             .endObject();

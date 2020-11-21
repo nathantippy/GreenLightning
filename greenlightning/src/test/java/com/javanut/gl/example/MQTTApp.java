@@ -11,9 +11,9 @@ import com.javanut.gl.api.MsgCommandChannel;
 import com.javanut.gl.api.PubSubListener;
 import com.javanut.gl.api.PubSubService;
 import com.javanut.gl.api.TimeListener;
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.pipe.ChannelReader;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class MQTTApp implements GreenApp {
 

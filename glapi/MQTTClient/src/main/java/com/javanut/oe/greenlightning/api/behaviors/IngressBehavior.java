@@ -5,8 +5,8 @@ import com.javanut.gl.api.PubSubFixedTopicService;
 import com.javanut.gl.api.PubSubMethodListener;
 import com.javanut.gl.api.PubSubService;
 import com.javanut.gl.api.WaitFor;
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.pipe.ChannelReader;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class IngressBehavior implements PubSubMethodListener {
 

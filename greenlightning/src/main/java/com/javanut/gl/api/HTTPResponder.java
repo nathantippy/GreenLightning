@@ -6,6 +6,7 @@ import com.javanut.pronghorn.network.http.HeaderWritable;
 import com.javanut.pronghorn.network.http.HeaderWriter;
 import com.javanut.pronghorn.pipe.ChannelReader;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class HTTPResponder {
 

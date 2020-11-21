@@ -2,9 +2,9 @@ package com.javanut.gl.test;
 
 import com.javanut.gl.api.ArgumentProvider;
 import com.javanut.gl.api.HTTPResponseReader;
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class ParallelClientLoadTesterPayload {
     

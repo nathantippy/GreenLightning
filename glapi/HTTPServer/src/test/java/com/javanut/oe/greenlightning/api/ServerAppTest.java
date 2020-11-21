@@ -7,11 +7,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.javanut.gl.api.GreenRuntime;
-import com.javanut.gl.api.Writable;
 import com.javanut.gl.test.LoadTester;
 import com.javanut.json.encode.JSONRenderer;
 import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 import com.javanut.pronghorn.util.Appendables;
 
 public class ServerAppTest {

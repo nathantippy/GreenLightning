@@ -7,10 +7,10 @@ import com.javanut.gl.api.GreenRuntime;
 import com.javanut.gl.api.HTTPRequestReader;
 import com.javanut.gl.api.HTTPResponseService;
 import com.javanut.gl.api.RestListener;
-import com.javanut.gl.api.Writable;
 import com.javanut.gl.json.JSONRequest.Fields;
 import com.javanut.pronghorn.network.config.HTTPContentTypeDefaults;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class JSONServerBehavior implements RestListener {
 

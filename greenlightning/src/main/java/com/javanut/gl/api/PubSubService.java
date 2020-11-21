@@ -12,6 +12,7 @@ import com.javanut.pronghorn.pipe.DataOutputBlobWriter;
 import com.javanut.pronghorn.pipe.FieldReferenceOffsetManager;
 import com.javanut.pronghorn.pipe.Pipe;
 import com.javanut.pronghorn.pipe.PipeWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class PubSubService {
 

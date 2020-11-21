@@ -7,7 +7,7 @@ import com.javanut.gl.api.PubSubFixedTopicService;
 import com.javanut.gl.api.PubSubService;
 import com.javanut.gl.api.TimeListener;
 import com.javanut.gl.api.WaitFor;
-import com.javanut.gl.api.Writable;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class TimeBehavior implements TimeListener {
 	private int droppedCount = 0;

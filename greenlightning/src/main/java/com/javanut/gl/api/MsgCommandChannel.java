@@ -24,6 +24,7 @@ import com.javanut.pronghorn.pipe.PipeConfig;
 import com.javanut.pronghorn.pipe.PipeConfigManager;
 import com.javanut.pronghorn.pipe.PipeWriter;
 import com.javanut.pronghorn.pipe.RawDataSchema;
+import com.javanut.pronghorn.pipe.Writable;
 import com.javanut.pronghorn.stage.file.schema.PersistedBlobStoreConsumerSchema;
 import com.javanut.pronghorn.stage.file.schema.PersistedBlobStoreProducerSchema;
 import com.javanut.pronghorn.stage.scheduling.GraphManager;
@@ -872,7 +873,7 @@ public class MsgCommandChannel<B extends BuilderImpl> implements BehaviorNameabl
 			Pipe.presumeRoomForWrite(gcc.goPipe);
 			int size = Pipe.addMsgIdx(gcc.goPipe, TrafficOrderSchema.MSG_BLOCKCHANNEL_22);
 			Pipe.addLongValue(durationNanos, gcc.goPipe);
-			Pipe.confirmLowLevelRead(gcc.goPipe, size);
+			Pipe.confirmLowLevelWrite(gcc.goPipe, size);
 			Pipe.publishWrites(gcc.goPipe);
 		} else {
 			logger.info("Unable to use block channel for ns without an additional feature use or USE_DELAY can be added.");
@@ -891,7 +892,7 @@ public class MsgCommandChannel<B extends BuilderImpl> implements BehaviorNameabl
 			Pipe.presumeRoomForWrite(gcc.goPipe);
 			int size = Pipe.addMsgIdx(gcc.goPipe, TrafficOrderSchema.MSG_BLOCKCHANNELUNTIL_23);
 			Pipe.addLongValue(timeMS, gcc.goPipe);
-			Pipe.confirmLowLevelRead(gcc.goPipe, size);
+			Pipe.confirmLowLevelWrite(gcc.goPipe, size);
 			Pipe.publishWrites(gcc.goPipe);
 		} else {
 			logger.info("Unable to use block channel for ns without an additional feature or USE_DELAY can be added.");

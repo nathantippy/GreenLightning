@@ -1,7 +1,7 @@
 package com.javanut.gl.test;
 
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 import java.io.*;
 import java.util.ArrayList;

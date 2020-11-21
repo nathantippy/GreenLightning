@@ -4,11 +4,11 @@ import com.javanut.gl.api.GreenApp;
 import com.javanut.gl.api.GreenFramework;
 import com.javanut.gl.api.GreenRuntime;
 import com.javanut.gl.api.HTTPResponseService;
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.network.config.HTTPHeaderDefaults;
 import com.javanut.pronghorn.network.http.HeaderWritable;
 import com.javanut.pronghorn.network.http.HeaderWriter;
 import com.javanut.pronghorn.pipe.ChannelWriter;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class EchoExampleApp implements GreenApp {
 

@@ -4,9 +4,9 @@ import com.javanut.gl.api.GreenApp;
 import com.javanut.gl.api.GreenFramework;
 import com.javanut.gl.api.GreenRuntime;
 import com.javanut.gl.api.HTTPResponseService;
-import com.javanut.gl.api.Writable;
 import com.javanut.pronghorn.network.config.HTTPHeaderDefaults;
 import com.javanut.pronghorn.network.http.HeaderWritable;
+import com.javanut.pronghorn.pipe.Writable;
 
 public class OpenCloseTestServer implements GreenApp {
 

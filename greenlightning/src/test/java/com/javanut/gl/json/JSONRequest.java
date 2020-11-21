@@ -28,7 +28,7 @@ public class JSONRequest {
     private StringBuilder extractTemp = new StringBuilder();
 
     public static final JSONRenderer<JSONRequest> renderer = new JSONRenderer<JSONRequest>()
-            .beginObject()
+            .startObject()
             .string("ID1", (o,t) -> t.append(o.id1))
             .string("ID2", (o,t) -> t.append(o.id2))
             .string("TimeStamp", (o,t) -> t.append("1969-12-31 18:02:03.0456 CST"))
